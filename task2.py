@@ -1,14 +1,7 @@
-def odometer (oksana):
-    distance = 0
-    j = 0
-    time = 0
-    timeAll = 0
-    for i in oksana:
-        if j % 2 == 0:
-            speed = i
-        else:
-            time = i - timeAll
-            timeAll = i
-            distance += speed * time
-        j += 1
+def odometer(oksana):
+    distance, time, i = 0, 0, 0
+    while i < len(oksana):
+        distance += oksana[i] * (oksana[i + 1] - time)
+        time = oksana[i + 1]
+        i += 2
     return distance
