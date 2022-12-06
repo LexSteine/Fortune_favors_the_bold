@@ -10,7 +10,7 @@ def MadMax(N, Tele):
             j = i + 1
         c = 0
         while c < N//2:
-            if Tele[N//2+c] < Tele[N-1-c]:
+            if N//2+c < N-1-c:
                 Tele[N//2+c],Tele[N-1-c] = Tele[N-1-c],Tele[N//2+c]
             c += 1
     return Tele
