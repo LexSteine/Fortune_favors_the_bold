@@ -18,12 +18,13 @@ def SynchronizingTables(N, ids, salary):
         seq = sort(N, seq)
 
         def re(m1, m2, m3):
-            for i in m2:
-                for j in m1:
-                    if j == m3[m2.index(i)] and m1.index(j) != m2.index(i):
-                        m3[m2.index(i)], m3[m1.index(j)] = m3[m1.index(j)], m3[m2.index(i)]
-                        m2[m2.index(i)], m2[m1.index(j)] = m2[m1.index(j)], m2[m2.index(i)]
+            if m1 != m3:
+                for i in m2:
+                    for j in m1:
+                        if j == m3[m2.index(i)] and m1.index(j) != m2.index(i):
+                            m3[m2.index(i)], m3[m1.index(j)] = m3[m1.index(j)], m3[m2.index(i)]
+                            m2[m2.index(i)], m2[m1.index(j)] = m2[m1.index(j)], m2[m2.index(i)]
+                re(m1, m2, m3)
             return m2
-
         return re(ids, salary, seq)
     return salary
