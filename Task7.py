@@ -3,6 +3,9 @@ def WordSearch(len, s, subs):
     result = []
     words = [""]
     words = AddWord(s, words, 0, len)
+    for i in words:
+    if i == "":
+        words.pop(words.index(i))
     result = FindSubs(words, subs, result)
 
     return result
