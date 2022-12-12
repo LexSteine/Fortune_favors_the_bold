@@ -2,13 +2,13 @@ def WordSearch(len, s, subs):
     s = s.split()
     result = []
     words = [""]
-    words = AddWord(s, words, number, len)
+    words = AddWord(s, words, 0, len)
     result = FindSubs(words, subs, result)
 
     return result
 
 
-def AddWord(s, words, 0, dlina):
+def AddWord(s, words, number, dlina):
     for i in s:
         if len(i) > dlina:
             if len(words[number]) >= dlina - 1:
