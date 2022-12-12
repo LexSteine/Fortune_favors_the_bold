@@ -20,7 +20,10 @@ def AddWord(s, words, number, dlina):
                     s.insert(s.index(i) + 1, i[dlina:])
             else:
                 a = dlina - len(words[number])
-                words[number] += " " + i[:a]
+                if len(words[number]) == 0:
+                    words[number] += i[:a]
+                else:
+                    words[number] += " " + i[:a]
                 if s.index(i) == len(s) - 1:
                     s.append(i[a:])
                 else:
@@ -42,15 +45,18 @@ def AddWord(s, words, number, dlina):
 
 def FindSubs(words, subs, result):
     for i in words:
-        if i.find(subs) == len(i) - len(subs):
-            if i.find(subs) == 0:
+        if len(subs) <= len(i):
+            if i.find(subs) == len(i) - len(subs):
+                if i.find(subs) == 0:
+                    result.append(1)
+                elif i[i.find(subs) - 1] == " ":
+                    result.append(1)
+            elif i.find(subs) == 0 and (i[len(subs)] == " "):
                 result.append(1)
-            elif i[i.find(subs) - 1] == " ":
+            elif i.find(subs) != -1 and i[i.find(subs) - 1] == " " and (i[len(subs)] == " "):
                 result.append(1)
-        elif i.find(subs) == 0 and (i[len(subs)] == " "):
-            result.append(1)
-        elif i.find(subs) != -1 and i[i.find(subs) - 1] == " " and (i[len(subs)] == " "):
-            result.append(1)
+            else:
+                result.append(0)
         else:
             result.append(0)
     return result
