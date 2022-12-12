@@ -2,7 +2,6 @@ def WordSearch(len, s, subs):
     s = s.split()
     result = []
     words = [""]
-    number = 0
     words = AddWord(s, words, number, len)
     for i in words:
         print(i)
@@ -11,7 +10,7 @@ def WordSearch(len, s, subs):
     return result
 
 
-def AddWord(s, words, number, dlina):
+def AddWord(s, words, 0, dlina):
     for i in s:
         if len(i) > dlina:
             if len(words[number]) >= dlina - 1:
