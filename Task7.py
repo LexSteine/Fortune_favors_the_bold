@@ -51,6 +51,8 @@ def FindSubs(words, subs, result):
                     result.append(1)
                 elif i[i.find(subs) - 1] == " ":
                     result.append(1)
+                else:
+                    result.append(0)
             elif i.find(subs) == 0 and (i[len(subs)] == " "):
                 result.append(1)
             elif i.find(subs) != -1 and i[i.find(subs) - 1] == " " and (i[len(subs)] == " "):
