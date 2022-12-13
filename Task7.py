@@ -24,13 +24,17 @@ def AddWord(s, words, number, dlina):
             else:
                 a = dlina - len(words[number])
                 if len(words[number]) == 0:
-                    words[number] += i[:a]
-                else:
-                    words[number] += " " + i[:a]
-                if s.index(i) == len(s) - 1:
+                  words[number] += i[:a]
+                  if s.index(i) == len(s) - 1:
                     s.append(i[a:])
-                else:
+                  else:
                     s.insert(s.index(i) + 1, i[a:])
+                else:
+                  words[number] += " " + i[:a - 1]
+                  if s.index(i) == len(s) - 1:
+                    s.append(i[a - 1:])
+                  else:
+                    s.insert(s.index(i) + 1, i[a - 1:])
         elif len(i) == dlina:
             words.append(i)
             number += 1
