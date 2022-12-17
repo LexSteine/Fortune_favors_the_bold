@@ -41,7 +41,7 @@ def DoDeshifr(s):
     for i in range(N):
         print(f"в начале:{spllited}")
         for j in spllited:
-            result += j[0] #КАКАЯ-ТО ПРОБЛЕМА С НУМЕРАЦИЕЙ ЭЛЕМЕНТОВ. ИЗ-ЗА ЭТОГО ПРИ УДАЛЕНИИ ОСТАВШИЕСЯ ЭЛЕМЕНТЫ ТЕРЯЮТ ПОРЯДОК
+            result += j[0]
             spllited[spllited.index(j)] = j[1:]
         print(f"контроль:{spllited}")
         for k in spllited:
