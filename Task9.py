@@ -34,15 +34,15 @@ def DoShifr(s):
 
 
 def DoDeshifr(s):
-    N = len(s.split())
-    M = len(s.split()[0])
-    spllited = s.split()
+    N = len(s.split()[0])
+    M = len(s.split())
+    s = s.split()
     result = ""
+    for i in s:
+        if len(i) < N:
+            for j in range(len(i), N):
+                s[s.index(i)] += " "
     for i in range(N):
-        for j in spllited:
-            result += j[0]
-            spllited[spllited.index(j)] = j[1:]
-        for k in spllited:
-            if k == "":
-                spllited.remove("")
-    return result
+        for j in range(M):
+            result += s[j][i]
+    return result.rstrip()
