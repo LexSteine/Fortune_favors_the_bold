@@ -39,13 +39,10 @@ def DoDeshifr(s):
     spllited = s.split()
     result = ""
     for i in range(N):
-        print(f"в начале:{spllited}")
         for j in spllited:
             result += j[0]
             spllited[spllited.index(j)] = j[1:]
-        print(f"контроль:{spllited}")
         for k in spllited:
-            print(f"удаление:элемент {k} в {spllited}")
             if k == "":
                 spllited.remove("")
     return result
