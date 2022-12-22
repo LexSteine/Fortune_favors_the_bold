@@ -48,5 +48,3 @@ def BigMinus(s1, s2):
         result = result[1:]
 
     return pref + result
-
-print(BigMinus("1200034", "1023499"))
