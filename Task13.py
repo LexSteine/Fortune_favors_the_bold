@@ -1,30 +1,24 @@
 def UFO(N, data, octal):
     if octal:
-        result = From8(data)
+        result = From8(N, data)
     else:
-        result = From16(data)
+        result = From16(N, data)
     return result
 
 
-def From8(data):
-    result = []
-    for i in data:
-        result.append(0)
-        for j in str(i):
-            # print(8 ** str(i).index(j))
-            print(i % 10 ** (1 + str(i).index(j)))
-            print(1 + str(i).index(j))
-            print("конец")
-            result[data.index(i)] += 8 ** str(i).index(j) * (i % 10 ** (1 + str(i).index(j)))
+def From8(N, data):
+    result = [0] * N
+    i = 0
+    for i in range(N):
+        for j in range(len(str(data[i]))):
+            result[i] += 8 ** (len(str(data[i])) - 1 - j) * int(str(data[i])[j])
     return result
 
 
-def From16(data):
-    result = []
-    for i in data:
-        result.append(0)
-        for j in str(i):
-            result[data.index(i)] += 16 ** data.index(i) * (int(j) % 10 ** (1 + data.index(i)))
+def From16(N, data):
+    result = [0] * N
+    i = 0
+    for i in range(N):
+        for j in range(len(str(data[i]))):
+            result[i] += 16 ** (len(str(data[i])) - 1 - j) * int(str(data[i])[j])
     return result
-
-print(From8([1234]))
