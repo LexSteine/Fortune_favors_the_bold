@@ -19,10 +19,10 @@ def w8(time, light):
     curr = True
     while count < time:
         if curr:
-            count += light[1] #skip red
+            count += light[1]
             curr = False
         else:
-            count += light[2] #skip green
+            count += light[2]
             curr = True
     if curr and (count == time or count > time):
         return time # + light[1]
@@ -30,18 +30,3 @@ def w8(time, light):
         return count
     elif not curr and count == time:
         return time
-
-# print(Places([[3,5,5], [5,2,2], [6,1,1], [9, 3, 3]]))
-# print(Unmanned(10, 4, [[3,3,3], [5,2,2]]))
-
-# def isGreen(time, light):
-#     count = 0
-#     res = True
-#     while count < time:
-#         if not res:
-#             count += light[1]
-#             res = False
-#         else:
-#             count += light[2]
-#             res = True
-#     return res
