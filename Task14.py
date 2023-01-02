@@ -5,7 +5,7 @@ def Unmanned(L, N, track):
         time += 1
         if odometer in places:
             time = w8(time, track[places.index(odometer)])
-    return odometer, time
+    return time
 
 
 def getPlaces(track):
