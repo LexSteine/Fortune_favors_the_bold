@@ -1,18 +1,19 @@
 def Unmanned(L, N, track):
-    curRange, ResTime, places = 0, 0, Places(track)
-    for i in range(len(places)):
-        ResTime += places[i]
-        curRange += places[i]
-        ResTime = w8(ResTime, track[i])
-    ResTime += L - curRange
-    return ResTime
+    time, odometer, places = 0, 0, getPlaces(track)
+    while odometer < L:
+        odometer += 1
+        time += 1
+        if odometer in places:
+            time = w8(time, track[places.index(odometer)])
+    return odometer, time
 
-def Places(massiv):
-    res = []
-    for i in range(len(massiv) - 1, 0, -1):
-        res.insert(0, massiv[i][0] - massiv[i - 1][0])
-    res.insert(0, massiv[0][0])
-    return res
+
+def getPlaces(track):
+    places = []
+    for trLight in track:
+        places.append(trLight[0])
+    return places
+
 
 def w8(time, light):
     count = 0
