@@ -26,7 +26,7 @@ def w8(time, light):
             count += light[2]
             curr = True
     if curr and (count == time or count > time):
-        return time # + light[1]
+        return time
     elif not curr and count > time:
         return count
     elif not curr and count == time:
