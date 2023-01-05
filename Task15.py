@@ -12,8 +12,8 @@ def FindFirstChar(H1, W1, S1, H2, W2, S2):
         for j in range(W1):
             if S1[i][j] == S2[0][0] and (i + H2 <= H1) and (j + W2 <= W1):
                 result = FindOtherChars(H1, W1, S1, H2, W2, S2, i, j)
-                if result:
-                    break
+            if result:
+                break
         if result:
             break
     return result
