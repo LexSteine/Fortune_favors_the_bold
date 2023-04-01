@@ -3,21 +3,23 @@ def Football(F, N):
         return True
     elif N == 1 or (N == 2 and F[1] >= F[0]):
         return False
-    AskOrder = True
+    AscOrder = True
     bigIndex, smallIndex = -1, -1
     for i in range(1, N):
         if F[i - 1] > F[i]:
-            AskOrder = False
+            AscOrder = False
             bigIndex = i - 1
             break
-    if not AskOrder:
+    if not AscOrder:
         smallIndex = SearchLastMin(F, bigIndex)
         Mcheck = FirstAlgo(F, bigIndex, smallIndex)
-        AskOrder = CheckAskOrder(Mcheck)
-    if not AskOrder:
+        AscOrder = CheckAscOrder(Mcheck)
+    else:
+        return False
+    if not AscOrder:
         Mcheck = SecondAlgo(F, bigIndex, smallIndex)
-        AskOrder = CheckAskOrder(Mcheck)
-    return AskOrder
+        AscOrder = CheckAscOrder(Mcheck)
+    return AscOrder
 
 
 def SearchLastMin(InputMassiv, startIndex):
@@ -45,7 +47,7 @@ def SecondAlgo(InputMassiv, startIndex, endIndex):
     return M
 
 
-def CheckAskOrder(M):
+def CheckAscOrder(M):
     flag = False
     for i in range(1, len(M)):
         if M[i - 1] <= M[i]:
